@@ -1,0 +1,145 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+  --font-code:    'JetBrains Mono', monospace;
+  --transition:   all 0.22s ease;
+}
+
+/* ── DARK THEME (default) ── */
+[data-theme="dark"] {
+  --bg:          #0d1117;
+  --bg-surface:  #161b22;
+  --bg-raised:   #1c2128;
+  --bg-code:     #090d12;
+  --border:      #30363d;
+  --border-soft: #21262d;
+  --text-primary:   #e6edf3;
+  --text-secondary: #8b949e;
+  --text-muted:     #484f58;
+  --accent-html:  #f97316;
+  --accent-css:   #3b82f6;
+  --accent-js:    #facc15;
+  --accent-react: #38bdf8;
+  --tag-html-bg:  #2a1505;
+  --tag-css-bg:   #0c1a3a;
+  --tag-js-bg:    #2a2000;
+  --tag-react-bg: #061e2f;
+  --output-bg:    #0a0f16;
+  --output-border:#1e2936;
+  --scrollbar:    #30363d;
+}
+
+/* ── LIGHT THEME ── */
+[data-theme="light"] {
+  --bg:          #f6f8fa;
+  --bg-surface:  #ffffff;
+  --bg-raised:   #f0f2f5;
+  --bg-code:     #f6f8fa;
+  --border:      #d0d7de;
+  --border-soft: #e4e8ec;
+  --text-primary:   #1a1f2e;
+  --text-secondary: #57606a;
+  --text-muted:     #9198a1;
+  --accent-html:  #ea580c;
+  --accent-css:   #2563eb;
+  --accent-js:    #b45309;
+  --accent-react: #0284c7;
+  --tag-html-bg:  #fff0e6;
+  --tag-css-bg:   #eff6ff;
+  --tag-js-bg:    #fefce8;
+  --tag-react-bg: #e0f2fe;
+  --output-bg:    #ffffff;
+  --output-border:#d0d7de;
+  --scrollbar:    #d0d7de;
+}
+
+html, body, #root { height: 100%; }
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--scrollbar); border-radius: 99px; }
+
+/* Code inline */
+code {
+  font-family: var(--font-code);
+  font-size: 12px;
+  background: var(--bg-raised);
+  color: var(--accent-react);
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--border-soft);
+}
+/* ── MOBILE RESPONSIVE ── */
+@media (max-width: 768px) {
+
+  /* Sidebar hide */
+  aside {
+    display: none !important;
+  }
+
+  /* Full width main */
+  main {
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  /* Header scrollable */
+  header {
+    padding: 0 12px !important;
+    gap: 8px !important;
+    overflow-x: auto !important;
+  }
+
+  /* Hide lang tab text, show only on bigger screens */
+  nav {
+    gap: 4px !important;
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* Topic content padding */
+  article {
+    padding: 16px !important;
+  }
+
+  /* Smaller title */
+  h1 {
+    font-size: 18px !important;
+  }
+
+  /* Code block font size */
+  pre {
+    font-size: 11px !important;
+    padding: 12px !important;
+  }
+
+  /* Practice editor height */
+  .editor {
+    flex-direction: column !important;
+    height: auto !important;
+  }
+
+  /* Split editor — stack vertically */
+  .codePane,
+  .previewPane {
+    height: 260px !important;
+  }
+
+  .divider {
+    width: 100% !important;
+    height: 1px !important;
+  }
+}
